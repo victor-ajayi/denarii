@@ -1,0 +1,30 @@
+:root {
+  font-family: "TT Norms Pro", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  /* background-color: #e2e2e2; */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.main {
+  display: flex;
+  align-items: normal;
+  gap: 0.6em;
+  --header-color: #878787;
+}
+
+body {
+  margin: 0.5em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

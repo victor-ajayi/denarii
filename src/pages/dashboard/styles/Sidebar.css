@@ -1,0 +1,45 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border-radius: 2em; */
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  height: 98vh;
+  width: 25vw;
+  position: sticky;
+  top: 1em;
+  padding: 1em 1em;
+}
+
+.sidebar-link {
+  align-items: center;
+  display: flex;
+  font-weight: 450;
+  gap: 1em;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  border: 1.5px solid transparent;
+  margin-bottom: 0.5em;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+.sidebar-link:hover {
+  /* border-color: #31712145; */
+  background-color: #f2f2f2;
+}
+
+.profile--icon,
+.dashboard--icon,
+.settings--icon {
+  width: 28px;
+}
+
+.sidebar--top {
+  position: relative;
+}
+
+.logo {
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+}

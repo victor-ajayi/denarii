@@ -1,0 +1,67 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  width: 100%;
+  height: fit-content;
+}
+
+.accounts,
+.transactions {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.accounts {
+  padding: 1.5em 2.5em;
+  padding-bottom: 0;
+  max-height: fit-content;
+}
+
+.transactions {
+  padding: 0.5em 2.5em;
+}
+
+.total-balance-group {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 4em;
+  gap: 1em;
+  /* margin-block: 0 10px; */
+}
+
+.total-balance--header {
+  color: var(--header-color);
+  font-size: 0.9em;
+  margin-block: 0;
+}
+
+.total-balance--balance {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.cards-group--card div {
+  align-self: center;
+}
+
+.cards-group--header {
+  margin-block: 0;
+}
+
+.cards-group--card {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin-top: 0.8em;
+}
+
+.card-balance {
+  font-size: 1.1em;
+}
+
+.card-name {
+  color: var(--header-color);
+  font-size: small;
+}
