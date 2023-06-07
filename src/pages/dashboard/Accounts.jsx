@@ -1,26 +1,44 @@
 import { useEffect, useState } from "react";
+import getToken from "../../token";
 import CardItem from "./CardItem";
 
 export default function Accounts() {
-  const [accounts, setAccounts] = useState([{}]);
+  const [cards, setCards] = useState([]);
+  const [totalBalance, setTotalBalance] = useState(0);
 
-  // TODO: Get card data from API
-
+  // Get cards from API
   useEffect(() => {
     async function getCardsFromAPI() {
-      const res = await fetch("http://localhost:8000/accounts");
-      const data = res.json();
+      const token = getToken();
+      try {
+        const res = await fetch("/api/accounts", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await res.json();
+        setCards(data);
+      } catch (err) {
+        console.error(err);
+      }
     }
-
     getCardsFromAPI();
   }, []);
 
-  let totalBalance = 5598.4;
+  // Update total balance effect
+  useEffect(() => {
+    let total = 0;
+    for (let card of cards) {
+      total += card.balance;
+    }
+
+    setTotalBalance(total);
+  }, [cards]);
 
   return (
     <div className="accounts">
       <div className="total-balance-group">
-        {/* <UilMoneyBill size="32px" color="#317121" /> */}
         <div>
           <p className="total-balance--header">Total balance</p>
           <div className="total-balance--balance">
@@ -33,8 +51,27 @@ export default function Accounts() {
       </div>
       <h3 className="cards-group--header">Accounts</h3>
       <div className="cards-group">
-        <CardItem name="MasterCard Mass" balance={3200.2} currency="RUB" />
-        <CardItem name="MasterCard Mass" balance={2398.2} currency="RUB" />
+        {cards?.length > 0 ? (
+          cards.map((card) => {
+            return (
+              <CardItem
+                key={card.id}
+                name={card.account_name}
+                balance={card.balance}
+                currency={card.currency}
+                type={card.account_type}
+              />
+            );
+          })
+        ) : (
+          <p
+            style={{
+              textAlign: "center",
+            }}
+          >
+            No cards to show
+          </p>
+        )}
       </div>
     </div>
   );
