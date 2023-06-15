@@ -9,17 +9,17 @@ export default function CardItem(props) {
   return (
     <div className="cards-group--item">
       {/* TODO: Render a different icon depending on ${props.type} */}
-      <UilCreditCard size="32px" color="#317121" />
+      <UilCreditCard size="32px" color="#2B4EB1" />
       <div>
         <div
-          className="card-balance"
+          className="card--balance"
           style={props.balance < 0 ? { color: "red" } : { color: "black" }}
         >
           {props.balance < 0
             ? `${balance.charAt(0)} ${balance.slice(1)}`
             : balance}
         </div>
-        <span className="card-name">{props.name}</span>
+        <span className="card--name">{props.name}</span>
       </div>
     </div>
   );
