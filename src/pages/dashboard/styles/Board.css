@@ -1,7 +1,7 @@
 .board {
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
+  gap: 1em;
   width: 100%;
   height: fit-content;
 }
@@ -22,13 +22,17 @@
   padding: 0.5em 2.5em;
 }
 
+.transactions--header {
+  padding-top: 0;
+}
+
 .total-balance-group {
   display: flex;
   align-items: center;
   position: absolute;
   right: 4em;
+  text-align: right;
   gap: 1em;
-  /* margin-block: 0 10px; */
 }
 
 .total-balance--header {
@@ -42,26 +46,58 @@
   font-weight: 500;
 }
 
+.cards-group {
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
 .cards-group--card div {
   align-self: center;
 }
 
-.cards-group--header {
+h3 {
   margin-block: 0;
 }
 
-.cards-group--card {
+.cards-group--item {
   display: flex;
   gap: 1em;
   align-items: center;
   margin-top: 0.8em;
 }
 
-.card-balance {
+.card--balance {
   font-size: 1.1em;
+  font-weight: 450;
 }
 
-.card-name {
+.card--name {
   color: var(--header-color);
-  font-size: small;
+  font-size: 0.9em;
+}
+
+.transactions-group--item {
+  display: grid;
+  grid-template-columns: 0.3fr 2.3fr 3.1fr 2.2fr;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.transaction--account-name {
+  font-size: 0.9em;
+  color: var(--header-color);
+}
+
+.transaction--name {
+  font-weight: 450;
+}
+
+.transaction--amount {
+  margin-left: auto;
+  font-weight: 450;
+}
+
+.transaction--date {
+  justify-self: center;
+  color: var(--header-color);
 }

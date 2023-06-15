@@ -24,7 +24,7 @@
   transition: border-color 0.25s, background-color 0.25s;
 }
 .sidebar-link:hover {
-  /* border-color: #31712145; */
+  /* border-color: #2B4EB145; */
   background-color: #f2f2f2;
 }
 
