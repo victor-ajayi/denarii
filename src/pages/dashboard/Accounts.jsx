@@ -1,41 +1,6 @@
-import { useEffect, useState } from "react";
-import getToken from "../../token";
 import CardItem from "./CardItem";
 
-export default function Accounts() {
-  const [cards, setCards] = useState([]);
-  const [totalBalance, setTotalBalance] = useState(0);
-
-  // Get cards from API
-  useEffect(() => {
-    async function getCardsFromAPI() {
-      const token = getToken();
-      try {
-        const res = await fetch("/api/accounts", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
-        setCards(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    getCardsFromAPI();
-  }, []);
-
-  // Update total balance effect
-  useEffect(() => {
-    let total = 0;
-    for (let card of cards) {
-      total += card.balance;
-    }
-
-    setTotalBalance(total);
-  }, [cards]);
-
+export default function Accounts({ cards, totalBalance }) {
   return (
     <div className="accounts">
       <div className="total-balance-group">
