@@ -1,4 +1,4 @@
-import { AuthProvider } from "react-auth-kit";
+import { AuthProvider, RequireAuth } from "react-auth-kit";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Home from "./pages/home/Home";
@@ -15,15 +15,14 @@ export default function MyRoutes() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            {/* <Route
+            <Route
               path="/dashboard"
               element={
                 <RequireAuth loginPath={"/login"}>
                   <Dashboard />
                 </RequireAuth>
               }
-            /> */}
+            />
             <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
