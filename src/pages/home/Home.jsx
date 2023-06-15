@@ -1,3 +1,18 @@
+import { Link } from "react-router-dom";
+import "./Home.css";
+
 export default function Home() {
-  return <h1>Home goes here</h1>;
+  return (
+    <div className="home-container">
+      <nav className="navbar">
+        <span className="navbar--brand">denarii</span>
+      </nav>
+      <h1 className="main-header">
+        Управляйте своими финансами <br /> <span> правильным способом!</span>
+      </h1>
+      <Link to="/login" className="login">
+        Пошли!
+      </Link>
+    </div>
+  );
 }

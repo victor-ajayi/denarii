@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
-import "./Form.css";
+import "./Login.css";
 import { loginToAPI } from "./utils";
 
 export default function Login() {
@@ -40,9 +40,10 @@ export default function Login() {
   return (
     <form className="form" onSubmit={(e) => e.preventDefault()}>
       <h1>Log in to your account</h1>
-      <label htmlFor="email">Email</label>
+      {/* <label htmlFor="email">Email</label> */}
+      <p className="form--welcome">Welcome back! Please enter your details.</p>
       <input
-        className="form--email"
+        className="form--input"
         type="email"
         placeholder="Email"
         name="email"
@@ -50,9 +51,9 @@ export default function Login() {
         onChange={handleChange}
         value={formData.email}
       />
-      <label htmlFor="password">Password</label>
+      {/* <label htmlFor="password">Password</label> */}
       <input
-        className="form--password"
+        className="form--input"
         type="password"
         placeholder="Password"
         name="password"
