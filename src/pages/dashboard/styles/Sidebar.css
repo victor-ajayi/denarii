@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border-radius: 2em; */
   background-color: #ffffff;
   border-right: 1px solid #e2e8f0;
   height: 98vh;
@@ -24,7 +23,6 @@
   transition: border-color 0.25s, background-color 0.25s;
 }
 .sidebar-link:hover {
-  /* border-color: #2B4EB145; */
   background-color: #f2f2f2;
 }
 
