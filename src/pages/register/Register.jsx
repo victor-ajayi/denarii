@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { useSignIn } from "react-auth-kit";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../utils";
-import "./Login.css";
+import { loginUser, registerUser } from "../../utils";
+import "./Register.css";
 
-export default function Login() {
+export default function Register() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const signIn = useSignIn();
   const navigate = useNavigate();
 
   async function handleSubmit() {
+    // Register user
+    try {
+      const res = await registerUser(formData);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // Login user
     let data;
     try {
       data = await loginUser(formData);
@@ -47,7 +56,7 @@ export default function Login() {
 
   return (
     <form className="form" onSubmit={(e) => e.preventDefault()}>
-      <h1>Welcome back!</h1>
+      <h1>Get started with Denarii</h1>
       <p className="form--welcome">Please enter your details.</p>
       <hr />
       <input
@@ -68,14 +77,23 @@ export default function Login() {
         onChange={handleChange}
         value={formData.password}
       />
+      <input
+        className="form--input password"
+        type="password"
+        placeholder="Confirm password"
+        name="confirmPassword"
+        required
+        onChange={handleChange}
+        value={formData.confirmPassword}
+      />
       <p className="forgot-password">Forgot password?</p>
       <button type="submit" onClick={handleSubmit}>
-        Log in
+        Register
       </button>
       <p className="sign-up-message">
-        Don't have an account?{" "}
-        <Link to="/register" className="sign-up">
-          Sign up
+        Already have an account?{" "}
+        <Link to="/login" className="sign-up">
+          Log in
         </Link>
       </p>
     </form>

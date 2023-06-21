@@ -10,7 +10,7 @@ export default function Home() {
       <h1 className="main-header">
         Управляйте своими финансами <br /> <span> правильным способом!</span>
       </h1>
-      <Link to="/login" className="login">
+      <Link to="/register" className="login">
         Пошли!
       </Link>
     </div>
